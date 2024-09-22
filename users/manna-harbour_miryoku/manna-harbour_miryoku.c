@@ -89,3 +89,35 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(thumbcombos_fun, KC_APP)
 };
 #endif
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer = get_highest_layer(state);
+    switch (layer) {
+        case 0:
+            rgblight_sethsv_noeeprom(HSV_WHITE);   // Base layer: white
+            break;
+        case 6:
+            rgblight_sethsv_noeeprom(HSV_PINK);    // Media layer (first thumb key, left): pink
+            break;
+        case 4:
+            rgblight_sethsv_noeeprom(HSV_CYAN);    // Nav layer (second thumb key, left): light blue/teal
+            break;
+        case 5:
+            rgblight_sethsv_noeeprom(HSV_YELLOW);  // Mouse layer (third thumb key, left): yellow
+            break;
+        case 8:
+            rgblight_sethsv_noeeprom(HSV_GREEN);   // Sym layer (first thumb key, right): green
+            break;
+        case 7:
+            rgblight_sethsv_noeeprom(HSV_BLUE);    // Num layer (second thumb key, right): dark blue
+            break;
+        case 9:
+            rgblight_sethsv_noeeprom(HSV_RED);     // Fun layer (third thumb key, right): red
+            break;
+        default:
+            rgblight_sethsv_noeeprom(HSV_WHITE);   // Default: white (fallback)
+            break;
+    }
+    return state;
+}
+

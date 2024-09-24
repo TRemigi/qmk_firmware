@@ -94,7 +94,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer = get_highest_layer(state);
     switch (layer) {
         case 0:
-            rgblight_sethsv_noeeprom(HSV_WHITE);   // Base layer: white
+            rgblight_sethsv_noeeprom(HSV_PURPLE);   // Base layer: white
             break;
         case 6:
             rgblight_sethsv_noeeprom(HSV_PINK);    // Media layer (first thumb key, left): pink
@@ -115,7 +115,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgblight_sethsv_noeeprom(HSV_RED);     // Fun layer (third thumb key, right): red
             break;
         default:
-            rgblight_sethsv_noeeprom(HSV_WHITE);   // Default: white (fallback)
+            rgblight_sethsv_noeeprom(HSV_PURPLE);   // Default: white (fallback)
             break;
     }
     return state;
